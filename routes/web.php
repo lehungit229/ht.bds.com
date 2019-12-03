@@ -74,3 +74,9 @@ Route::delete('backend/usercatalogues/{id}', 'Backend\UserCatalogueController@de
 
 
 Auth::routes();
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+?>

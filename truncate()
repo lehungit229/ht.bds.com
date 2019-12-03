@@ -1,9 +1,0 @@
-
-                                                
-  Command "db:table('users')-" is not defined.  
-                                                
-  Did you mean one of these?                    
-      db:seed                                   
-      db:wipe                                   
-                                                
-

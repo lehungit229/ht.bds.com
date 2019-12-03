@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Providers;
-
 use Illuminate\Support\ServiceProvider;
 
-class NestedsetbieServiceProvider extends ServiceProvider
+class NestedsetbieProvider extends ServiceProvider
 {
     protected $defer = true;
     /**
@@ -15,7 +14,7 @@ class NestedsetbieServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('App\Library\Services\Nestedsetbie', function ($app) {
-          return new Nestedsetbie();
+            return new Nestedsetbie();
         });
     }
 

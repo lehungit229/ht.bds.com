@@ -24,7 +24,7 @@ class ArticleCatalogueController extends BackendController
      */
     public function index(Nestedsetbie $Nestedsetbie)
     {
-        
+        da(1);
         $script = $this->module;   
         return view('backend.articlecatalogue.index', ['script' => $script, 'modules' => ArticleCatalogue::get()]);
     }
