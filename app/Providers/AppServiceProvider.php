@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+
+namespace App\Providers;
 use Illuminate\Support\helpers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
@@ -43,8 +45,6 @@ class AppServiceProvider extends ServiceProvider
             });
 
             return $this;
-        });
-
-
+        }); 
     }
 }

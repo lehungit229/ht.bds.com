@@ -16,7 +16,7 @@
 	</div>
 	<div class="wrapper wrapper-content  animated fadeInRight">
 		<div class="row">
-			<div class="col-sm-8" style="padding-left:0;padding-right:0;">
+			<div class="col-sm-12" style="padding-left:0;padding-right:0;">
 				<div class="ibox">
 					<div class="ibox-title">
 						<h5>Danh sách người dùng</h5>

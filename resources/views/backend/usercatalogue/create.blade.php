@@ -43,7 +43,10 @@
                             @endphp
 
                             @php
-                                $xml = simplexml_load_file(URL::to('/').'/app/http/controllers/backend/config.xml') or die('Error: Cannot create object '.$dir.'/'.$valFolder.'/config.xml');  
+                            echo 1;
+                            echo route('');
+                            da(env('APP_URL'));
+                                $xml = simplexml_load_file(asset('/').'/app/http/controllers/backend/config.xml') or die('Error: Cannot create object '.$dir.'/'.$valFolder.'/config.xml');  
                                 $xml = json_decode(json_encode((array)$xml), TRUE);
                                 $xml = $xml['permissions'];
                             @endphp

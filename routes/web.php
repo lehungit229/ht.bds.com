@@ -11,6 +11,22 @@
 |
 */
 
+Route::get('/test', function () {
+    return view('test');
+});
+
+Route::get('addWatermark', function()
+{
+    $img = Image::make(public_path('images/main.jpg'));
+   
+    /* insert watermark at bottom-right corner with 10px offset */
+    $img->insert(public_path('images/logo.jpg'), 'bottom-right', 10, 10);
+    $img->save(public_path('images/main-new.jpg')); 
+   
+    dd('saved image successfully.');
+});
+
+
 // MODULE article
 Route::get('backend/article', 'Backend\articleController@index')->name('backend.article');
 Route::get('backend/article/search', 'Backend\articleController@search')->name('backend.article.search');
@@ -74,9 +90,3 @@ Route::delete('backend/usercatalogues/{id}', 'Backend\UserCatalogueController@de
 
 
 Auth::routes();
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-?>

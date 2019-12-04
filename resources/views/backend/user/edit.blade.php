@@ -1,7 +1,17 @@
 @extends('backend.common.layout')
 
 @section('content')
+
 <div id="page-wrapper" class="gray-bg dashbard-1">
+	<textarea name=text id="text" cols="30" rows="10"></textarea>
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script>
+    CKEDITOR.replace( 'text', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+
+    } );
+    </script>
+@include('ckfinder::setup')
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
 			<h2>Cập nhật thành viên</h2>
