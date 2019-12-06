@@ -130,12 +130,12 @@ class UserCatalogueController extends BackendController
      */
     public function destroy($id)
     {   
-        $result = UserCatalogue::destroy($id);
+        $result = UserCatalogue::destroy($request, $id);
 
         if ($result ) {
-            \Session::flash('success', __('messages.module_destroy') );
+            \Session::flash('success', __('messages.module_update') );
         } else {
-            \Session::flash('error', __('messages.module_not_destroy'));
+            \Session::flash('error', __('messages.module_not_update'));
         }
         return redirect()->route('backend.usercatalogue');
     }

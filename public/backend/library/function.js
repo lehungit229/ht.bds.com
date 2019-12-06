@@ -1,4 +1,4 @@
-var BASE_URL = "http://ht.laravel.com/"
+var BASE_URL = "http://ht.bds.com/"
 $(document).ready(function() {
 	/* UPLOAD ẢNH */
 	$(document).on('click', '.img-thumbnail', function(){
@@ -95,52 +95,6 @@ $(document).ready(function() {
 	});
 
 	
-	$(".delete").on("submit", function(){
-		let _this = $(this);
-		let obj = {}
-		obj.title = _this.attr('data-title');
-		obj.moduleText = _this.attr('data-moduleText');
-		obj.module = _this.attr('data-module');
-		obj.id = _this.attr('data-id');
-		swal({
-			title: "Hãy chắc chắn rằng bạn muốn thực hiện thao tác này?",
-			text: obj.title,
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "Thực hiện!",
-			cancelButtonText: "Hủy bỏ!",
-			closeOnConfirm: false,
-			closeOnCancel: false },
-			function (isConfirm) {
-				if (isConfirm) {
-					return true
-					$.ajax({
-						type: 'POST', 
-						url: 'http://api.thegioiweb.org/v1.0/'+obj.module+'/delete/'+obj.id+'?'+authid,
-						data: obj,
-						crossDomain:true,
-						cache:false,
-						success: function(resultApi){
-							let json = JSON.parse(resultApi);
-							if(json.result == true){
-								swal("Xóa thành công!", "Hạng mục đã được xóa khỏi danh sách.", "success");
-								_this.parents('tr').hide().remove();
-							}else{
-								toastr.error(json.message)
-							}
-						},
-						error: function(resultApi){
-							let json = JSON.parse(resultApi);
-							toastr.error(json.message)
-						}
-					});
-
-				} else {
-					swal("Hủy bỏ", "Thao tác bị hủy bỏ", "error");
-				}
-			});
-	});
 
 	// Xóa 1 row trong bảng
 	$(document).on('click','.js_del_row', function(){
@@ -493,34 +447,34 @@ function replace(Str=''){
 }
  
 function selectMultipe(_this){
-	let text = _this.attr('data-text')
-	let module = _this.attr('data-module');
-	let key = _this.attr('data-key');
-	let value = _this.attr('data-value');
-	let query = _this.attr('data-query')
-	let selected= _this.attr('data-selected')
+	// let text = _this.attr('data-text')
+	// let module = _this.attr('data-module');
+	// let key = _this.attr('data-key');
+	// let value = _this.attr('data-value');
+	// let query = _this.attr('data-query')
+	// let selected= _this.attr('data-selected')
 
-	key = (typeof key == 'undefined') ? 'id' : key ;
-	value = (typeof value == 'undefined') ? 'name' : value ;
-	text = (typeof text == 'Vui lòng nhập 2 kí tự') ? 'name' : text ;
+	// key = (typeof key == 'undefined') ? 'id' : key ;
+	// value = (typeof value == 'undefined') ? 'name' : value ;
+	// text = (typeof text == 'Vui lòng nhập 2 kí tự') ? 'name' : text ;
 
-	if(selected != ''){
-		setTimeout(function(){
-			$.post('backend/ajax/dropdown', {
-				selected: selected, module: module,value:value, key:key},
-				function(data){
-					let json = JSON.parse(data);
-					if(json.items!='undefined' && json.items.length){
-						for(let i = 0; i< json.items.length; i++){
-							var option = new Option(json.items[i].text, json.items[i].id, true, true);
-							_this.append(option).trigger('change');
-						}
-					}
-				});
-		}, 100);
-	}else{
-		select2(_this, module, key, value, query)
-	}
+	// if(selected != ''){
+	// 	setTimeout(function(){
+	// 		$.post('backend/ajax/dropdown', {
+	// 			selected: selected, module: module,value:value, key:key},
+	// 			function(data){
+	// 				let json = JSON.parse(data);
+	// 				if(json.items!='undefined' && json.items.length){
+	// 					for(let i = 0; i< json.items.length; i++){
+	// 						var option = new Option(json.items[i].text, json.items[i].id, true, true);
+	// 						_this.append(option).trigger('change');
+	// 					}
+	// 				}
+	// 			});
+	// 	}, 100);
+	// }else{
+	// 	select2(_this, module, key, value, query)
+	// }
 }
 
 function select2(_this, module, key, value, query ){

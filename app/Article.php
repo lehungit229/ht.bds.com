@@ -103,14 +103,13 @@ class Article extends Model
         //         unset($request[$key]);
         //     }
         // }
-        Article::find($id)->update($request);
-
-        return 1;
-
+        return Article::find($id)->update($request);
     }
 
     public static function destroy($id)
     {
-        return 1;
+        return User::find($id)->update([
+            'trash' => 1,
+        ]);
     }
 }

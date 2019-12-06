@@ -33,7 +33,4 @@ class DashboardController extends BackendController
 		}
 		echo json_encode(array('items' => $temp));die();
 	}
-		
-
-
 }

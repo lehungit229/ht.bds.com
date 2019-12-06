@@ -89,11 +89,10 @@
 																<td class="text-success">{{ $item->name }}</td>
 																<td>{{ $item->phone ?? '' }}</td>
 																<td class="client-status" style="text-align:center;">
-																	<form class="delete" method="POST" action="{{ url('backend/users/'.$item->id ?? '' ) }}" onsubmit='return ConfirmDelete()'] >
+																	<form class="delete" method="POST" action="{{ url('backend/users/'.$item->id ?? '' ) }}" >
+																		{{ csrf_field() }}
+													    				{{ method_field('delete') }}
 																		<a type="button" href="{{ url('backend/users/'.$item->id.'/edit') }}"   class="btn btn-sm btn-primary btn-update"><i class="fa fa-edit"></i></a>
-																	    {{ csrf_field() }}
-																	    {{ method_field('delete') }}
-																		
 																	   <button type="submit"  class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
 																	</form>
 																</td>

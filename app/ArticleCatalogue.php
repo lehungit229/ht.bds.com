@@ -109,15 +109,15 @@ class ArticleCatalogue extends Model
         $Nestedsetbie = new Nestedsetbie();
         $Nestedsetbie->Processed(array('table' => 'article_catalogues'));
 
-        ArticleCatalogue::find($id)->update([
+        return ArticleCatalogue::find($id)->update([
             'name' => $request['name'] ?? '',
         ]);
-        return 1;
-
     }
 
     public static function destroy($id)
     {
-        return 1;
+        return User::find($id)->update([
+            'trash' => 1,
+        ]);
     }
 }

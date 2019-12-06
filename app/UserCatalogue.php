@@ -91,6 +91,8 @@ class UserCatalogue extends Model
 
     public static function destroy($id)
     {
-        return 1;
+        return User::find($id)->update([
+            'trash' => 1,
+        ]);
     }
 }

@@ -133,7 +133,6 @@ class UserController extends BackendController
     public function destroy($id)
     {   
         $result = User::destroy($id);
-
         if ($result ) {
             \Session::flash('success', __('messages.module_destroy') );
         } else {

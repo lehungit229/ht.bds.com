@@ -34,7 +34,6 @@
 					<div class="ibox m0">
 						<div class="ibox-content">
 							<div class="row mb15">
-								<div class="js_dropdown" data-name="supplier" data-checked="" data-module="supplier" data-text="Chọn NCC" data-value="title"></div>
 								<div class="col-lg-6">
 									<div class="form-row">
 										<label class="control-label text-left">
